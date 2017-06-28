@@ -1,0 +1,24 @@
+{
+  "name": "vuex-test",
+  "description": "Vue multipage app based on webpack.",
+  "main": "dist/vuex-test.js",
+  "authors": [
+    "smalleast"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "homepage": "https://github.com/smalleastship/vuex-test",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ]
+}

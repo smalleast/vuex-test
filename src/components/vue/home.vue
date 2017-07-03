@@ -2,26 +2,23 @@
   <div id="app">
     Clicked: {{ $store.state.count }} times, count is {{ evenOrOdd }}.
     <button @click="increment">+</button>
+    <button @click="decrement">-</button>
     <button @click="incrementIfOdd">Increment if odd</button>
-    <Home></Home>
+    <button @click="incrementAsync">Increment async</button>
   </div>
 </template>
 
 <script>
   import {mapGetters, mapActions} from 'vuex'
-  import {Home} from 'components/vue/index';
-
   export default {
     computed: mapGetters([
       'evenOrOdd'
     ]),
     methods: mapActions([
       'increment',
-      'incrementIfOdd'
-    ]),
-    name: 'Content',
-    components: {
-      Home
-    }
+      'decrement',
+      'incrementIfOdd',
+      'incrementAsync'
+    ])
   }
 </script>

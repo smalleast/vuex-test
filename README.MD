@@ -52,3 +52,44 @@ Vue multipage app based on webpack.
 ```apache
 DocumentRoot /Users/feizheng/github/vuex-test/dist/
 ```
+
+##
+```
+scss
+@import "./components/*";
+
+import-glob-loader
+
+module: {
+      preloaders: [{
+        test: /\.scss/,
+        loader: 'import-glob-loader'
+      }],
+      loaders: [{
+        test: /\.vue$/,
+        loader: 'vue'
+      }, {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: /node_modules/
+      }, {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer')
+      }, {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')
+      },   {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass!import-glob-loader')
+      },  {
+        test: /\.(gif|jpg|png)\??.*$/,
+        loader: 'url-loader?limit=8096&name=assets/images/[name].[ext]'
+      }, {
+        test: /\.(woff|svg|eot|ttf)\??.*$/,
+        loader: 'url-loader?limit=8096&name=assets/fonts/[name].[ext]'
+      }, {
+        test: /\.(html|tpl)$/,
+        loader: 'html-loader?minimize=false'
+      }]
+    }
+```

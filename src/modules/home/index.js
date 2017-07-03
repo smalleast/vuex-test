@@ -1,3 +1,11 @@
-import './app.js';
+import '../../components/styles/index.scss'
+import './style.scss'
+import Vue from 'vue'
+import content from './content.vue'
+import store from './store/main'
 
-console.log('home -> index.js');
+new Vue({
+  el: '#app',
+  store,
+  render: h => h(content)
+});

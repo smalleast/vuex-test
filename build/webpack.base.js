@@ -17,7 +17,6 @@
   ];
 
   var processedEntries = {};
-
   for (var key in webpackEntries) {
     if (webpackEntries.hasOwnProperty(key)) {
       processedEntries[key.slice(12)] = webpackEntries[key];
@@ -29,6 +28,10 @@
     processedEntries: processedEntries,
     plugins: webpackPlugins,
     module: {
+      preloaders: [{
+        test: /\.scss/,
+        loader: 'import-glob-loader'
+      }],
       loaders: [{
         test: /\.vue$/,
         loader: 'vue'
@@ -42,10 +45,10 @@
       }, {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')
-      }, {
+      },   {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass')
-      }, {
+        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass!import-glob-loader')
+      },  {
         test: /\.(gif|jpg|png)\??.*$/,
         loader: 'url-loader?limit=8096&name=assets/images/[name].[ext]'
       }, {

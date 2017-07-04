@@ -68,7 +68,7 @@
     },
     babel: {
       presets: ['es2015'],
-      plugins: ['transform-runtime']
+      plugins: ['transform-runtime','transform-object-rest-spread']
     },
     resolve: {
       extensions: ['', '.js', '.vue'],

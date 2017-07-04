@@ -1,4 +1,4 @@
-import '../../components/styles/index.scss'
+import 'components/styles/index.scss'
 import './style.scss'
 import Vue from 'vue'
 import content from './content.vue'

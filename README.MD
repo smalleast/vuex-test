@@ -93,3 +93,24 @@ module: {
       }]
     }
 ```
+
+##babel编译不过...三个点传对象的语法
+```
+ methods: {
+      ...mapActions([
+        'increment',
+        'incrementIfOdd'
+      ]),
+      save: save
+    }
+
+  ```
+
+  ##解决方法
+  ```
+  安装组件：babel-plugin-transform-object-rest-spread
+  babel: {
+        presets: ['es2015'],
+        plugins: ['transform-runtime','transform-object-rest-spread']
+      }
+  ```

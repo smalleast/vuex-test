@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
   var webpack = require('webpack');
   var path = require('path');
@@ -25,12 +25,11 @@
     })
   ];
 
-  Object.keys($.webpackEntries).forEach(function(name) {
-    // console.log(name.slice(12));
+  Object.keys($.webpackEntries).forEach(function (name) {
     if (name.indexOf('index') > -1) {
       var plugin = new HtmlWebpackPlugin(
-        nx.mix(config.htmlWebpackOptions,{
-          filename: name.slice(12) + '.html',
+        nx.mix(config.htmlWebpackOptions, {
+          filename: name.slice(12, -6) + '.html',
           template: name + '.html',
           chunks: [config.vendorName, name.slice(12)]
         })
@@ -38,9 +37,7 @@
       $.plugins.push(plugin);
     }
   });
-
   productPlugins = $.plugins.concat(productPlugins);
-
 
 
   module.exports = {
@@ -50,7 +47,7 @@
       filename: '[name]-[chunkhash:6].js',
       chunkFilename: '[id]-[chunkhash:6].js',
       minify: false,
-      publicPath: '../'
+      publicPath: ''
     },
     plugins: productPlugins,
     module: $.module,

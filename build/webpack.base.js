@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
   var config = require('./webpack.config');
   var path = require('path');
@@ -13,16 +13,14 @@
     }),
     new webpack.NoErrorsPlugin(),
     // split vendor js into its own file,
-    new ExtractTextPlugin('[name]/index-[contenthash:5].css')
+    new ExtractTextPlugin('[name]-[contenthash:5].css')
   ];
-
   var processedEntries = {};
   for (var key in webpackEntries) {
     if (webpackEntries.hasOwnProperty(key)) {
       processedEntries[key.slice(12)] = webpackEntries[key];
     }
   }
-
   module.exports = {
     webpackEntries: webpackEntries,
     processedEntries: processedEntries,
@@ -45,10 +43,10 @@
       }, {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')
-      },   {
+      }, {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass!import-glob-loader')
-      },  {
+      }, {
         test: /\.(gif|jpg|png)\??.*$/,
         loader: 'url-loader?limit=8096&name=assets/images/[name].[ext]'
       }, {
@@ -68,7 +66,7 @@
     },
     babel: {
       presets: ['es2015'],
-      plugins: ['transform-runtime','transform-object-rest-spread']
+      plugins: ['transform-runtime', 'transform-object-rest-spread']
     },
     resolve: {
       extensions: ['', '.js', '.vue'],

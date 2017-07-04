@@ -10,7 +10,7 @@
 
 <script>
   import {mapGetters, mapActions} from 'vuex'
-  import {AppBase, Home} from 'components/vue/index';
+  import {Home} from 'components/vue/index';
 
   export default {
     computed: mapGetters([
@@ -28,14 +28,8 @@
       Home
     }
   }
-
   function save() {
-    console.log('local1:', AppBase.local);
-    AppBase.local = {localTest: '这是测试local的数据'};
-    console.log('local2:', AppBase.local);
-    console.log('session1:', AppBase.session);
-    AppBase.session = {sessionTest: '这是测试session的数据'};
-    console.log('session2:', AppBase.session);
-  }
+    console.log('这是一条测试的数据');
 
+  }
 </script>

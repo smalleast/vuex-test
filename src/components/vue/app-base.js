@@ -50,6 +50,18 @@
         result[key] = Store.get(keys[k]);
       }
       return result;
+    },
+    clear: function (inKey) {
+      global[Store.engine].removeItem(inKey);
+    },
+    clearAll: function (inArray) {
+      if(Array.isArray(inArray)){
+        inArray.forEach(function(item){
+          Store.clear(item);
+        })
+      }else{
+        global[Store.engine].clear();
+      }
     }
   };
   module.exports = Store;

@@ -10,7 +10,7 @@
 
 <script>
   import {mapGetters, mapActions} from 'vuex'
-  import {AppBase, Home} from 'components/vue/index';
+  import {AppBase, Home, $api} from 'components/vue/index';
 
   export default {
     computed: mapGetters([
@@ -36,6 +36,9 @@
     console.log('session1:', AppBase.session);
     AppBase.session = {sessionTest: '这是测试session的数据'};
     console.log('session2:', AppBase.session);
+    $api.findSellerCenterInfo_100().then(result => {
+      console.log('result:', result);
+    });
   }
 
 </script>

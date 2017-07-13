@@ -24,7 +24,6 @@
       chunks: Object.keys($.processedEntries)
     })
   ];
-
   Object.keys($.webpackEntries).forEach(function (name) {
     if (name.indexOf('index') > -1) {
       var plugin = new HtmlWebpackPlugin(
@@ -37,6 +36,17 @@
       $.plugins.push(plugin);
     }
   });
+  Object.keys($.webpackEntriesHtml).forEach(function (name) {
+    var plugin = new HtmlWebpackPlugin(
+      nx.mix(config.htmlWebpackOptions, {
+        filename: name.slice(19),
+        template:name,
+        chunks: []
+      })
+    );
+    $.plugins.push(plugin);
+  });
+
   productPlugins = $.plugins.concat(productPlugins);
 
 

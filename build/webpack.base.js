@@ -7,6 +7,8 @@
   var ExtractTextPlugin = require('extract-text-webpack-plugin');
   var PurifyCSSPlugin = require('purifycss-webpack-plugin');
   var webpackEntries = entries('src/modules/**/index.js');
+  var webpackEntriesHtml = entries('src/modules/public/*.html');
+
   var webpackPlugins = [
     new webpack.ProvidePlugin({
       Vue: 'vue'
@@ -23,6 +25,7 @@
   }
   module.exports = {
     webpackEntries: webpackEntries,
+    webpackEntriesHtml: webpackEntriesHtml,
     processedEntries: processedEntries,
     plugins: webpackPlugins,
     module: {

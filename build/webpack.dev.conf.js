@@ -1,4 +1,4 @@
-(function() {
+(function () {
 
   var path = require('path');
   var webpack = require('webpack');
@@ -14,18 +14,18 @@
     })
   ];
 
-  nx.each($.webpackEntries,function(name) {
+  nx.each($.webpackEntries, function (name) {
     if (name.indexOf('index') > -1) {
       var plugin = new HtmlWebpackPlugin(
-        nx.mix(config.htmlWebpackOptions,{
-          filename: name+ '.html',
+        nx.mix(config.htmlWebpackOptions, {
+          filename: name + '.html',
           template: name + '.html',
           chunks: [config.vendorName, name]
         })
       );
       $.plugins.push(plugin);
     }
-  })
+  });
 
   hotReloadPlugins = hotReloadPlugins.concat($.plugins);
 
@@ -46,14 +46,14 @@
     devtool: '#source-map',
     devServer: {
       hot: true,
-      inline:true,
+      inline: true,
       stats: 'errors-only',
       port: 8080,
       proxy: {
         '/helper': {
-           //target: 'http://train.dcpai.cn:80',
+          //target: 'http://train.dcpai.cn:80',
           target: 'http://192.168.10.253:80',
-          pathRewrite: { '^/helper': '/helper' },
+          pathRewrite: {'^/helper': '/helper'},
           changeOrigin: true
         }
       }

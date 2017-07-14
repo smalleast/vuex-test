@@ -39,16 +39,7 @@
       let result = {};
       let keys = inKeys || [];
       let i = 0, key;
-      let storeEngine = global[Store.engine];
-      if (keys.length === 0) {
-        for (i = 0; i < storeEngine.length; i++) {
-          key = storeEngine.key(i);
-          keys.push(key);
-        }
-      }
-      for (let k in keys) {
-        result[key] = Store.get(keys[k]);
-      }
+      result = global[Store.engine];
       return result;
     },
     clear: function (inKey) {

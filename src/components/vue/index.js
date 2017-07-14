@@ -8,7 +8,8 @@ import Api from '../services/api';
 import App from '../services/app';
 import Config from '../services/config';
 
-export const $Api=Api;
-export const $App=App;
-export const $Config=Config;
+export const $Api = Api;
+export const $App = App;
+export const $Config = Config;
+
 

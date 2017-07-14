@@ -10,7 +10,7 @@
 
 <script>
   import {mapGetters, mapActions} from 'vuex'
-  import {Home} from 'components/vue/index';
+  import {Home,$Api} from 'components/vue/index';
 
   export default {
     computed: mapGetters([
@@ -30,6 +30,8 @@
   }
   function save() {
     console.log('这是一条测试的数据');
-
+    $Api.findPostDetailInfo_300({postId: '2517'}).then(function (result) {
+      console.log('result:', result);
+    });
   }
 </script>
